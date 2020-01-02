@@ -4,19 +4,22 @@ class LinkedList {
 
     Node head
 
-    void add(int data) {
+    int length = 0
 
+    void add(int data) {
         Node node = new Node(data)
         node.next = head
         head = node
+        length++
     }
 
     void printList() {
         Node tHead = head
         while (tHead != null) {
-            System.out.println(tHead.data)
+            System.out.print(tHead.data + "-->")
             tHead = tHead.next
         }
+        System.out.println("NULL")
     }
 
     Node middleNode() {
@@ -30,6 +33,26 @@ class LinkedList {
         }
 
         slowPtr
+    }
+
+    Node kThNodeFromMiddle(int k) {
+
+        int position = (length / 2) - k
+
+        System.out.println("position of node from head is " + position)
+        System.out.println("Looking for element at position:$k from middle towards head")
+        if (position < 0) {
+            System.out.println("Invalid value for k=$k")
+            return null
+        }
+
+        Node tNode = head
+        int counter = 0
+        while (counter < position) {
+            tNode = tNode.next
+            counter++
+        }
+        tNode
     }
 }
 
@@ -53,7 +76,13 @@ class LinkedListDemo {
         linkedList.add(3)
         linkedList.add(4)
         linkedList.add(5)
+        linkedList.add(6)
+        linkedList.add(7)
+        linkedList.add(8)
+        linkedList.add(9)
         linkedList.printList()
-        System.out.println(linkedList.middleNode().data)
+        System.out.println("Middle Node is " + linkedList.middleNode().data)
+        System.out.println("Linked List Length is " + linkedList.length)
+        System.out.println("1st Node from middle is " + linkedList.kThNodeFromMiddle(1).data)
     }
 }
