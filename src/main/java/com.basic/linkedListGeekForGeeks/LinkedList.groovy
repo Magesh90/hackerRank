@@ -13,6 +13,30 @@ class LinkedList {
         length++
     }
 
+    void addAtPosition(int data, int position) {
+
+        if (position == 0 && head == null) {
+            head = new Node(data)
+        } else if (position == 0 && head != null) {
+            Node nodeToBeAdded = new Node(data)
+            nodeToBeAdded.next = head
+            head = nodeToBeAdded
+        } else {
+            Node nodeToBeAdded = new Node(data)
+            int counter = 0
+            Node current = head
+            Node previous = null
+            while (counter < position) {
+                previous = current
+                current = current.next
+                counter++
+            }
+            nodeToBeAdded.next = current
+            previous.next = nodeToBeAdded
+        }
+        length++
+    }
+
     void printList() {
         Node tHead = head
         while (tHead != null) {
@@ -21,6 +45,24 @@ class LinkedList {
         }
         System.out.println("NULL")
     }
+
+    void reverseList() {
+
+        Node pointer = head
+        Node previous = null
+
+        while (pointer != null) {
+            Node temp = previous
+            previous = pointer
+            pointer = pointer.next
+            previous.next = temp
+        }
+
+        head = previous
+
+        printList()
+    }
+
 
     Node middleNode() {
 
@@ -84,5 +126,9 @@ class LinkedListDemo {
         System.out.println("Middle Node is " + linkedList.middleNode().data)
         System.out.println("Linked List Length is " + linkedList.length)
         System.out.println("1st Node from middle is " + linkedList.kThNodeFromMiddle(1).data)
+        linkedList.addAtPosition(45, 4)
+        linkedList.printList()
+        println("Reversing the list")
+        linkedList.reverseList()
     }
 }

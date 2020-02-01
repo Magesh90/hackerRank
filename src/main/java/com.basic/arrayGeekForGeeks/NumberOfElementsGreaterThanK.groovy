@@ -4,7 +4,7 @@ class NumberOfElementsGreaterThanK {
 
     public static void main(String[] args) {
 
-        int[] inputArray = [2, 3, 5, 6, 6, 9]
+        int[] inputArray = [2, 3, 5, 7,8]
         int k = 5
 
         //1. iterate through each and put items>k in a array O(N)
