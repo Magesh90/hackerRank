@@ -18,6 +18,19 @@ public class LinkedListHackerRank {
         return head;
     }
 
+    static Node1 removedDuplicates(Node1 head) {
+        Node1 temp = head;
+        while (temp != null && temp.next != null) {
+            if (temp.data == temp.next.data) {
+                temp.next = temp.next.next;
+            } else
+                temp = temp.next;
+        }
+        System.out.println("LinkedList after removing the duplicates");
+        display(head);
+        return head;
+    }
+
     public static void display(Node1 head) {
         Node1 start = head;
         while (start != null) {
@@ -27,7 +40,6 @@ public class LinkedListHackerRank {
     }
 
     public static void main(String[] args) {
-        LinkedListHackerRank list = new LinkedListHackerRank();
         Scanner sc = new Scanner(System.in);
         Node1 head = null;
         int N = sc.nextInt();
@@ -37,6 +49,7 @@ public class LinkedListHackerRank {
             head = insert(head, ele);
         }
         display(head);
+        removedDuplicates(head);
         sc.close();
     }
 }
