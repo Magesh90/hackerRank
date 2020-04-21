@@ -1,6 +1,6 @@
 package com.basic.arrayGeekForGeeks;
 
-import java.util.Scanner;
+import java.util.*;
 
 
 public class NewYearChaos {
@@ -49,9 +49,21 @@ public class NewYearChaos {
         //int[] inputArray = {2, 5, 1, 3, 4};
         //int[] inputArray = {5,1,2,3,7,8,6,4};
         int[] inputArray = {1, 2, 5, 3, 7, 8, 6, 4};
-        minimumBribes(inputArray);
+       // minimumBribes(inputArray);
 
         scanner.close();
+
+        HashMap<String,String> test = new HashMap<>();
+        System.out.println(test.getOrDefault("key","defaultValue"));
+
+        LinkedHashMap<String,String> test1 = new LinkedHashMap<>();
+        System.out.println(test1.getOrDefault("key","defaultValue"));
+
+
+        Hashtable<String,String> table = new Hashtable<>();
+        System.out.println(table.getOrDefault("key","defaultValue"));
+
+        Properties properties=new Properties();
     }
 }
 
