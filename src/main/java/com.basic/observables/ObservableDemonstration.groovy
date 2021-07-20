@@ -4,6 +4,7 @@ import rx.Observable
 import rx.Scheduler
 import rx.schedulers.Schedulers
 
+import java.time.Instant
 import java.util.concurrent.FutureTask
 
 class ObservableDemonstration {
@@ -26,11 +27,13 @@ class ObservableDemonstration {
 
         Scheduler scheduler = Schedulers.computation()
         scheduler.createWorker().schedule({
+            println("Running before future "+ Date.from(Instant.now()))
+            Thread.sleep(10000)
             futureTask.run()
         })
 
         futureObservable.subscribe({
-            println("from future task=$it")
+            println("from future task=$it"+ Date.from(Instant.now()))
         })
     }
 }
