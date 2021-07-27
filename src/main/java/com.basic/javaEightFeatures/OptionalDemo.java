@@ -68,12 +68,12 @@ public class OptionalDemo {
     }
 
     public static void main(String[] args) throws Exception {
+        charactersNeededInFrontToMakeItPallindrome();
         findMaxElementInArray(new int[]{4, 7, 9, 10, 23, 56, 23, 10});
         checkConcurrentModification();
         areTwins("abcdefgh", "abcdehgf");
         findDegreeOfSmallestSubArray(new int[]{1, 2, 3, 4, 2, 2, 3});
         allSubArraysOfArray(new int[]{1, 2, 3, 4});
-        charactersNeededInFrontToMakeItPallindrome();
         duplicatesInArrayWithoutAdditionalObj(new int[]{2, 3, 8, 2, 5});
         organizeUserActivity();
         reverseArray(new int[]{3, 5, 7, 8, 2});
@@ -417,6 +417,8 @@ public class OptionalDemo {
     }
 
     static Character[] charactersNeededInFrontToMakeItPallindrome() {
+        //BBAAA - AAABBAAA, BAAA- AAABAAA, ABA - 0
+        //left right
         String beforePalindrome = "BBAAA";
         List<Character> requiredCharacters = new ArrayList<>();
         int cnt = 0;
@@ -429,7 +431,8 @@ public class OptionalDemo {
                 cnt++;
             }
         }
-
+        requiredCharacters.clear();
+        beforePalindrome = "AABAA"; //BAA-AABAA ABA
         char[] charArray = beforePalindrome.toCharArray();
         int left = 0;
         int right = charArray.length - 1;
@@ -438,9 +441,10 @@ public class OptionalDemo {
         {
             if (charArray[left] != charArray[right]) {
                 requiredCharacters.add(charArray[right]);
+            } else {
+                left++;
             }
-            left++;
-            right--;
+                right--;
         }
         return (Character[]) requiredCharacters.toArray();
     }
@@ -576,7 +580,7 @@ public class OptionalDemo {
         int left = 0;
         int right = array.length - 1;
         int middle;
-        int maxNumber=0;
+        int maxNumber = 0;
         while (left < right) {
             middle = (left + right) / 2;
             if (array[middle] < array[middle + 1]) {
@@ -587,5 +591,17 @@ public class OptionalDemo {
             }
         }
         boolean didItWork = (maxNumber == 56);
+        int maxNum = array[0];
+        for (int i = 1; i < array.length; i++) {
+            if (array[i] > maxNum)
+                maxNum = array[i];
+        }
+        for (int i = 0; i < array.length-1; i++) {
+            if(array[i+1]-array[i]<0){
+                System.out.println("Decreasing point is "+array[i]);
+                break;
+            }
+        }
+        System.out.println("MacNum is " + maxNum);
     }
 }

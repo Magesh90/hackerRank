@@ -2,11 +2,17 @@ package com.basic.arrayGeekForGeeks
 
 class FindMissingAndRepeatedNumberinArray {
     static void main(String[] args) {
-        int[] input = [1, 2, 3, 5, 6, 7, 8, 9, 5]
+        int[] input = [1, 2, 3, 4, 5, 6, 7, 8, 9, 11]
         int expectedMissingNumber = 10
         int expectedRepeatedNumber = 4
 
-        int[] occurenceArray = new int[input.length + 1]
+        for (int i = 0; i < input.length - 1; i++) {
+            if (input[i + 1] - input[i] > 1) {
+                println("missing number is " + ++input[i])
+                break
+            }
+        }
+        int[] occurenceArray = new int[input.length *2]
 
         for (int i = 0; i < input.length; i++) {
             occurenceArray[input[i]]++

@@ -30,4 +30,7 @@ class DecreasingFrequency {
             (keys[i]).times { print(sortedFrequency.get(keys[i])) }
         }
     }
+    //hashmap sorts based on key and adds in the map 2:1
+    //treemap value based key is added 1 time 2 , 3 times 8, 4 times 3
+    // since we need to print in decreasing order(highest occurences first) - we need to go from last
 }
