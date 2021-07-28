@@ -22,10 +22,12 @@ public class Demo {
 
         switch (choice) {
             case DIGITAL:
-                new DigitalProductFactory().createProduct();
+                Product product = new DigitalProductFactory().createProduct();
+                product.getProductDescription();
                 break;
             case STORE:
-                new StoreProductFactory().createProduct();
+                Product product1 = new StoreProductFactory().createProduct();
+
                 break;
             default:
                 throw new Exception("Choice incorrect or chance of change is expected here");

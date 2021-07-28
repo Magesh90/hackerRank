@@ -3,7 +3,7 @@ package com.base.design.patterns.factory;
 import java.math.BigDecimal;
 
 public abstract class Product {
-    abstract Product getProduct();
+    abstract void getProductDescription();
 
     int quantity;
     private BigDecimal price;
@@ -45,8 +45,8 @@ class StoreProduct extends Product {
     }
 
     @Override
-    Product getProduct() {
-        return this;
+    void getProductDescription() {
+        System.out.println("A concrete impl of store product with quantity:"+quantity);
     }
 }
 
@@ -61,8 +61,8 @@ class DigitalProduct extends Product {
     }
 
     @Override
-    Product getProduct() {
-        return this;
+    void getProductDescription() {
+        System.out.println("A concrete impl of store product with quantity:"+quantity);
     }
 }
 
