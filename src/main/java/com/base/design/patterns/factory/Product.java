@@ -46,7 +46,7 @@ class StoreProduct extends Product {
 
     @Override
     void getProductDescription() {
-        System.out.println("A concrete impl of store product with quantity:"+quantity);
+        System.out.println("A concrete impl of store product with quantity:" + quantity);
     }
 }
 
@@ -62,8 +62,19 @@ class DigitalProduct extends Product {
 
     @Override
     void getProductDescription() {
-        System.out.println("A concrete impl of store product with quantity:"+quantity);
+        System.out.println("A concrete impl of digital product with quantity:" + quantity);
     }
+}
+
+abstract class Phone extends DigitalProduct {
+    String phoneType;
+
+    public Phone(int _quantity, BigDecimal _price, String phoneType) {
+        super(_quantity, _price);
+        this.phoneType = phoneType;
+    }
+
+    abstract void setPhoneType();
 }
 
 enum Fulfillment {

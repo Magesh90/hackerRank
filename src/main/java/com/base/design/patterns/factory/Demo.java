@@ -27,7 +27,7 @@ public class Demo {
                 break;
             case STORE:
                 Product product1 = new StoreProductFactory().createProduct();
-
+                product1.getProductDescription();
                 break;
             default:
                 throw new Exception("Choice incorrect or chance of change is expected here");
